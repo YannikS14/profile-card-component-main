@@ -8,18 +8,42 @@ body {
 }
 
 .container {
-  height: 100vh;
-  background: url(./images/bg-pattern-top.svg) left -70% top 200% no-repeat,
-    url(./images/bg-pattern-bottom.svg) right -50% bottom 250% no-repeat;
+  min-height: 100vh;
+  margin: 0 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
+.container:before,
+.container:after {
+  position: absolute;
+  content: '';
+  width: 100vw;
+  height: 100vh;
+  background-size: auto;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.container:before {
+  top: 0;
+  left: 0;
+  background: url('./images/bg-pattern-top.svg') no-repeat bottom
+    right;
+}
+
+.container:after {
+  top: 100%;
+  left: 100%;
+  background: url('./images/bg-pattern-bottom.svg') no-repeat top left;
+}
+
 .profile-card {
   height: 375px;
-  width: 325px;
+  width: 100%;
+  max-width: 325px;
   background-color: white;
   border-radius: 15px;
   box-shadow: 0px 10px 30px 10px rgba(0, 0, 0, 0.1);
@@ -57,7 +81,7 @@ h2,
 .data-title {
   color: hsl(229, 23%, 23%);
   font-weight: 700;
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 
 .data-title {
@@ -65,7 +89,7 @@ h2,
 }
 
 .city {
-  font-size: 14px;
+  font-size: 0.875rem;
   color: hsl(227, 10%, 46%);
   margin: 10px 0 25px 0;
 }
@@ -82,7 +106,7 @@ h2,
 }
 
 .data-sub {
-  font-size: 11px;
+  font-size: 0.6875rem;
   color: hsl(227, 10%, 46%);
   letter-spacing: 2px;
   margin: 0;
@@ -90,19 +114,10 @@ h2,
 
 .attribution {
   margin-top: 20px;
-  font-size: 11px;
+  font-size: 0.6875rem;
   text-align: center;
 }
 
 .attribution a {
   color: white;
-}
-
-@media (max-width: 375px) {
-  .container {
-    background: url(./images/bg-pattern-top.svg) left 125% top 200%
-        no-repeat,
-      url(./images/bg-pattern-bottom.svg) right 130% bottom 180%
-        no-repeat;
-  }
 }
